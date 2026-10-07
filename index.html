@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#07080c"
+    >
+
+    <meta
+        name="description"
+        content="V-Tracker — tracker de jugadores de VALORANT, estadísticas, partidas, colección y lineups."
+    >
+
+    <title>
+        V-Tracker — VALORANT Tracker
+    </title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="background-grid"></div>
+
+<div class="noise"></div>
+
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+
+    <a
+        href="#tracker"
+        class="brand"
+        aria-label="V-Tracker inicio"
+    >
+
+        <span class="brand-icon">
+            V
+        </span>
+
+        <span>
+            V<span class="brand-red">-</span>TRACKER
+        </span>
+
+    </a>
+
+
+
+    <nav
+        class="desktop-nav"
+        aria-label="Navegación principal"
+    >
+
+        <a href="#tracker">
+            Tracker
+        </a>
+
+        <a href="#ranking">
+            Ranking
+        </a>
+
+        <a href="#lineups">
+            Lineups
+        </a>
+
+        <a href="#collection">
+            Colección
+        </a>
+
+        <a href="#matches">
+            Partidas
+        </a>
+
+    </nav>
+
+
+
+    <div class="nav-actions">
+
+
+        <div
+            class="nav-tracked-counter"
+            title="Jugadores únicos registrados por V-Tracker"
+        >
+
+            <span class="live-dot"></span>
+
+            <span>
+
+                <b id="navTrackedCount">
+                    12.842
+                </b>
+
+                PLAYERS TRACKED
+
+                <em>
+                    · DEMO
+                </em>
+
+            </span>
+
+        </div>
+
+
+
+        <button
+            class="login-nav"
+            id="openLogin"
+            type="button"
+        >
+            INICIAR SESIÓN
+        </button>
+
+
+
+        <button
+            class="profile-button hidden"
+            id="profileButton"
+            type="button"
+            aria-label="Abrir mi cuenta"
+        >
+
+            <span
+                class="profile-avatar profile-avatar-small"
+            >
+
+                <img
+                    id="navAvatarImage"
+                    alt=""
+                >
+
+                <span id="navAvatarFallback">
+                    P
+                </span>
+
+            </span>
+
+            <span id="navUsername">
+                PLAYER
+            </span>
+
+            <span class="profile-dot"></span>
+
+        </button>
+
+
+
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            type="button"
+            aria-label="Abrir menú"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     MOBILE NAV
+========================= -->
+
+<div
+    class="mobile-nav"
+    id="mobileNav"
+>
+
+    <a href="#tracker">
+        Tracker
+    </a>
+
+    <a href="#ranking">
+        Ranking
+    </a>
+
+    <a href="#lineups">
+        Lineups
+    </a>
+
+    <a href="#collection">
+        Colección
+    </a>
+
+    <a href="#matches">
+        Partidas
+    </a>
+
+</div>
+
+
+
+<main>
+
+
+<!-- =========================
+     HERO / TRACKER
+========================= -->
+
+<section
+    class="hero"
+    id="tracker"
+>
+
+    <div class="hero-glow"></div>
+
+
+    <div class="hero-content">
+
+
+        <div class="hero-label">
+
+            <span></span>
+
+            VALORANT PLAYER TRACKER
+
+        </div>
+
+
+
+        <div class="hero-kicker">
+
+            <span class="hero-kicker-dot"></span>
+
+            <span id="heroTrackedCount">
+                12.842
+            </span>
+
+            JUGADORES TRACKED · DEMO LOCAL
+
+        </div>
+
+
+
+        <h1>
+
+            KNOW YOUR
+
+            <br>
+
+            <strong>
+                GAME.
+            </strong>
+
+        </h1>
+
+
+
+        <p>
+
+            Analiza tu rendimiento,
+            descubre tus estadísticas,
+            revisa tus partidas y
+            presume de colección.
+
+        </p>
+
+
+
+        <form
+            class="search-box"
+            id="searchForm"
+        >
+
+            <div
+                class="search-icon"
+                aria-hidden="true"
+            >
+                ⌕
+            </div>
+
+
+            <label
+                class="sr-only"
+                for="riotSearch"
+            >
+                Riot ID
+            </label>
+
+
+            <input
+                id="riotSearch"
+                type="text"
+                maxlength="120"
+                autocomplete="off"
+                placeholder="Riot ID#TAG · Ej: TenZ#NA1"
+            >
+
+
+            <button
+                id="searchButton"
+                type="submit"
+            >
+                BUSCAR
+            </button>
+
+        </form>
+
+
+
+        <div class="search-hints">
+
+            <span>
+                Demo players:
+            </span>
+
+
+            <button
+                type="button"
+                data-demo-player="ShadowPlayer#EUW"
+            >
+                ShadowPlayer#EUW
+            </button>
+
+
+            <button
+                type="button"
+                data-demo-player="TenZ#NA1"
+            >
+                TenZ#NA1
+            </button>
+
+
+            <button
+                type="button"
+                data-demo-player="Player#1234"
+            >
+                Player#1234
+            </button>
+
+        </div>
+
+
+
+        <p class="demo-text">
+
+            Demo mode ·
+            Contador, cuentas y favoritos
+            se guardan solo en este navegador.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="hero-decoration">
+
+        <span>
+            01
+        </span>
+
+        <div></div>
+
+        <span>
+            TRACK
+        </span>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     PLAYER PROFILE
+========================= -->
+
+<section
+    class="profile-section hidden"
+    id="profile"
+>
+
+
+    <div class="section-top">
+
+
+        <div class="profile-identity">
+
+
+            <div
+                class="profile-avatar profile-avatar-large"
+            >
+
+                <img
+                    id="profileAvatarImage"
+                    alt=""
+                >
+
+                <span id="profileAvatarFallback">
+                    S
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <p class="section-label">
+                    PLAYER PROFILE
+                </p>
+
+                <h2 id="playerName">
+                    ShadowPlayer
+                </h2>
+
+                <p
+                    class="riot-id"
+                    id="playerRiotId"
+                >
+                    ShadowPlayer#EUW
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="rank-display">
+
+            <div class="rank-display-top">
+
+                <img
+                    id="playerRankIcon"
+                    class="rank-display-icon"
+                    alt=""
+                    loading="lazy"
+                >
+
+                <div>
+
+                    <span>
+                        RANK
+                    </span>
+
+                    <strong id="playerRank">
+                        IMMORTAL 3
+                    </strong>
+
+                    <small id="playerRR">
+                        187 RR
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="profile-tabs">
+
+        <button
+            class="profile-tab active"
+            data-tab="overview"
+            type="button"
+        >
+            RESUMEN
+        </button>
+
+        <button
+            class="profile-tab"
+            data-tab="matches"
+            type="button"
+        >
+            PARTIDAS
+        </button>
+
+        <button
+            class="profile-tab"
+            data-tab="agents"
+            type="button"
+        >
+            AGENTES
+        </button>
+
+        <button
+            class="profile-tab"
+            data-tab="collection"
+            type="button"
+        >
+            COLECCIÓN
+        </button>
+
+    </div>
+
+
+
+    <!-- OVERVIEW -->
+
+    <div
+        class="profile-panel active"
+        id="overviewPanel"
+    >
+
+
+        <div class="stats-cards">
+
+
+            <div class="stat-card">
+
+                <span>
+                    K/D
+                </span>
+
+                <strong id="kd">
+                    1.34
+                </strong>
+
+                <small>
+                    +8.4%
+                </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    WIN RATE
+                </span>
+
+                <strong id="winrate">
+                    61.2%
+                </strong>
+
+                <small>
+                    +4.1%
+                </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    ACS
+                </span>
+
+                <strong id="acs">
+                    267.4
+                </strong>
+
+                <small>
+                    +12.8
+                </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    HEADSHOT
+                </span>
+
+                <strong id="hs">
+                    28.4%
+                </strong>
+
+                <small>
+                    +3.2%
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="profile-grid">
+
+
+            <div class="performance-card">
+
+                <div class="card-header">
+
+
+                    <div>
+
+                        <p>
+                            PERFORMANCE
+                        </p>
+
+                        <h3>
+                            Últimas 10 partidas
+                        </h3>
+
+                    </div>
+
+
+                    <span class="green">
+                        +18 RR
+                    </span>
+
+
+                </div>
+
+
+
+                <div
+                    class="chart"
+                    aria-label="Gráfico de rendimiento"
+                >
+
+                    <div class="chart-line"></div>
+
+
+                    <div class="chart-points">
+
+                        <span style="--x:5%;--y:70%"></span>
+                        <span style="--x:15%;--y:60%"></span>
+                        <span style="--x:25%;--y:66%"></span>
+                        <span style="--x:35%;--y:45%"></span>
+                        <span style="--x:45%;--y:52%"></span>
+                        <span style="--x:55%;--y:35%"></span>
+                        <span style="--x:65%;--y:42%"></span>
+                        <span style="--x:75%;--y:25%"></span>
+                        <span style="--x:85%;--y:31%"></span>
+                        <span style="--x:95%;--y:18%"></span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="favorite-agent-card">
+
+                <p>
+                    MAIN AGENT
+                </p>
+
+                <h3 id="mainAgentName">
+                    JETT
+                </h3>
+
+                <span id="mainAgentRole">
+                    DUELIST
+                </span>
+
+
+                <img
+                    id="mainAgentPortrait"
+                    class="main-agent-portrait"
+                    alt=""
+                    loading="lazy"
+                >
+
+
+                <div class="agent-symbol">
+                    J
+                </div>
+
+
+                <div class="agent-mini-stats">
+
+
+                    <div>
+
+                        <b>
+                            1.47
+                        </b>
+
+                        <span>
+                            K/D
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <b>
+                            64%
+                        </b>
+
+                        <span>
+                            WIN
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <b>
+                            279
+                        </b>
+
+                        <span>
+                            ACS
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MATCHES -->
+
+    <div
+        class="profile-panel"
+        id="matchesPanel"
+    >
+
+        <div class="panel-title">
+
+            <div>
+
+                <p>
+                    HISTORY
+                </p>
+
+                <h3>
+                    Últimas partidas
+                </h3>
+
+            </div>
+
+
+            <button
+                class="filter-button"
+                type="button"
+            >
+                TODAS ▾
+            </button>
+
+        </div>
+
+
+
+        <div
+            class="match-list"
+            id="matches"
+        >
+
+
+            <div
+                class="match-row win"
+                data-map="ASCENT"
+                data-agent="JETT"
+            >
+
+                <div class="match-result">
+
+                    <strong>
+                        VICTORIA
+                    </strong>
+
+                    <span>
+                        +24 RR
+                    </span>
+
+                </div>
+
+
+                <div class="match-map">
+
+                    <div class="match-media">
+
+                        <img
+                            class="match-map-image"
+                            data-map-image="ASCENT"
+                            alt="Ascent"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            ASCENT
+                        </strong>
+
+                        <span>
+                            Competitive
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="match-agent">
+
+                    <div class="match-agent-media">
+
+                        <img
+                            class="match-agent-image"
+                            data-agent-image="JETT"
+                            alt="Jett"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            JETT
+                        </strong>
+
+                        <span>
+                            Duelist
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="match-score">
+                    21 / 14 / 5
+                </div>
+
+
+                <div class="match-kda">
+                    1.50 K/D
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="match-row loss"
+                data-map="HAVEN"
+                data-agent="OMEN"
+            >
+
+                <div class="match-result">
+
+                    <strong>
+                        DERROTA
+                    </strong>
+
+                    <span>
+                        -19 RR
+                    </span>
+
+                </div>
+
+
+                <div class="match-map">
+
+                    <div class="match-media">
+
+                        <img
+                            class="match-map-image"
+                            data-map-image="HAVEN"
+                            alt="Haven"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            HAVEN
+                        </strong>
+
+                        <span>
+                            Competitive
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="match-agent">
+
+                    <div class="match-agent-media">
+
+                        <img
+                            class="match-agent-image"
+                            data-agent-image="OMEN"
+                            alt="Omen"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            OMEN
+                        </strong>
+
+                        <span>
+                            Controller
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="match-score">
+                    16 / 18 / 3
+                </div>
+
+
+                <div class="match-kda">
+                    0.89 K/D
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="match-row win"
+                data-map="LOTUS"
+                data-agent="KILLJOY"
+            >
+
+                <div class="match-result">
+
+                    <strong>
+                        VICTORIA
+                    </strong>
+
+                    <span>
+                        +21 RR
+                    </span>
+
+                </div>
+
+
+                <div class="match-map">
+
+                    <div class="match-media">
+
+                        <img
+                            class="match-map-image"
+                            data-map-image="LOTUS"
+                            alt="Lotus"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            LOTUS
+                        </strong>
+
+                        <span>
+                            Competitive
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="match-agent">
+
+                    <div class="match-agent-media">
+
+                        <img
+                            class="match-agent-image"
+                            data-agent-image="KILLJOY"
+                            alt="Killjoy"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            KILLJOY
+                        </strong>
+
+                        <span>
+                            Sentinel
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="match-score">
+                    25 / 12 / 7
+                </div>
+
+
+                <div class="match-kda">
+                    2.08 K/D
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="match-row win"
+                data-map="BIND"
+                data-agent="VIPER"
+            >
+
+                <div class="match-result">
+
+                    <strong>
+                        VICTORIA
+                    </strong>
+
+                    <span>
+                        +18 RR
+                    </span>
+
+                </div>
+
+
+                <div class="match-map">
+
+                    <div class="match-media">
+
+                        <img
+                            class="match-map-image"
+                            data-map-image="BIND"
+                            alt="Bind"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            BIND
+                        </strong>
+
+                        <span>
+                            Competitive
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="match-agent">
+
+                    <div class="match-agent-media">
+
+                        <img
+                            class="match-agent-image"
+                            data-agent-image="VIPER"
+                            alt="Viper"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            VIPER
+                        </strong>
+
+                        <span>
+                            Controller
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="match-score">
+                    19 / 11 / 8
+                </div>
+
+
+                <div class="match-kda">
+                    1.72 K/D
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- AGENTS -->
+
+    <div
+        class="profile-panel"
+        id="agentsPanel"
+    >
+
+        <div class="panel-title">
+
+            <div>
+
+                <p>
+                    AGENTS
+                </p>
+
+                <h3>
+                    Rendimiento por agente
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="agent-stats-grid">
+
+
+            <div
+                class="agent-stat"
+                data-agent="JETT"
+            >
+
+                <div class="agent-avatar agent-avatar-photo">
+
+                    <img
+                        class="profile-agent-thumb"
+                        data-agent-image="JETT"
+                        alt="Jett"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        JETT
+                    </strong>
+
+                    <span>
+                        42 partidas
+                    </span>
+
+                </div>
+
+
+                <b>
+                    1.47 K/D
+                </b>
+
+                <small>
+                    64% WIN
+                </small>
+
+            </div>
+
+
+
+            <div
+                class="agent-stat"
+                data-agent="OMEN"
+            >
+
+                <div class="agent-avatar agent-avatar-photo">
+
+                    <img
+                        class="profile-agent-thumb"
+                        data-agent-image="OMEN"
+                        alt="Omen"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        OMEN
+                    </strong>
+
+                    <span>
+                        31 partidas
+                    </span>
+
+                </div>
+
+
+                <b>
+                    1.31 K/D
+                </b>
+
+                <small>
+                    58% WIN
+                </small>
+
+            </div>
+
+
+
+            <div
+                class="agent-stat"
+                data-agent="SAGE"
+            >
+
+                <div class="agent-avatar agent-avatar-photo">
+
+                    <img
+                        class="profile-agent-thumb"
+                        data-agent-image="SAGE"
+                        alt="Sage"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        SAGE
+                    </strong>
+
+                    <span>
+                        18 partidas
+                    </span>
+
+                </div>
+
+
+                <b>
+                    1.12 K/D
+                </b>
+
+                <small>
+                    55% WIN
+                </small>
+
+            </div>
+
+
+
+            <div
+                class="agent-stat"
+                data-agent="PHOENIX"
+            >
+
+                <div class="agent-avatar agent-avatar-photo">
+
+                    <img
+                        class="profile-agent-thumb"
+                        data-agent-image="PHOENIX"
+                        alt="Phoenix"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        PHOENIX
+                    </strong>
+
+                    <span>
+                        12 partidas
+                    </span>
+
+                </div>
+
+
+                <b>
+                    1.28 K/D
+                </b>
+
+                <small>
+                    59% WIN
+                </small>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- COLLECTION -->
+
+    <div
+        class="profile-panel"
+        id="collectionPanel"
+    >
+
+        <div class="collection-header">
+
+
+            <div>
+
+                <p>
+                    COLLECTION
+                </p>
+
+                <h3>
+                    Mis skins
+                </h3>
+
+            </div>
+
+
+            <div class="collection-progress">
+
+                <strong id="skinCount">
+                    12
+                </strong>
+
+                <span>
+                    SKINS
+                </span>
+
+                <div class="progress-bar">
+                    <span></span>
+                </div>
+
+                <small>
+                    24% colección
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="collection-filters">
+
+            <button
+                class="skin-filter active"
+                data-filter="all"
+                type="button"
+            >
+                TODAS
+            </button>
+
+            <button
+                class="skin-filter"
+                data-filter="vandal"
+                type="button"
+            >
+                VANDAL
+            </button>
+
+            <button
+                class="skin-filter"
+                data-filter="phantom"
+                type="button"
+            >
+                PHANTOM
+            </button>
+
+            <button
+                class="skin-filter"
+                data-filter="knife"
+                type="button"
+            >
+                KNIVES
+            </button>
+
+        </div>
+
+
+
+        <div
+            class="skins-grid"
+            id="skinsGrid"
+        ></div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     RANKING
+========================= -->
+
+<section
+    class="ranking-section"
+    id="ranking"
+>
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="section-label">
+                01 / WORLD RANKING
+            </p>
+
+            <h2>
+
+                WHERE DO
+
+                <br>
+
+                <span>
+                    YOU STAND?
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <p>
+
+            Todos los niveles de rango
+            competitivo representados con
+            sus iconos.
+
+            <strong>
+                Demo:
+            </strong>
+
+            las cifras siguen siendo
+            ilustrativas.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="ranking-layout">
+
+
+        <div
+            class="rank-list"
+            id="rankList"
+        ></div>
+
+
+        <div class="ranking-summary">
+
+            <div class="world-icon">
+                ◈
+            </div>
+
+            <span>
+                GLOBAL
+            </span>
+
+            <strong>
+                100%
+            </strong>
+
+            <p>
+                Los 25 niveles competitivos
+                en una sola vista.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     LINEUPS
+========================= -->
+
+<section
+    class="lineups-section"
+    id="lineups"
+>
+
+
+    <div
+        class="section-heading lineups-heading"
+    >
+
+
+        <div>
+
+            <p class="section-label">
+                02 / LINEUPS
+            </p>
+
+
+            <h2>
+
+                MASTER YOUR
+
+                <br>
+
+                <span>
+                    SETUPS.
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <p>
+
+            Encuentra lineups por mapa
+            y agente y aprende cada
+            ejecución mediante vídeos
+            paso a paso.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="lineups-toolbar">
+
+
+        <!-- MAP -->
+
+        <div
+            class="lineup-control"
+            id="mapFilterControl"
+        >
+
+            <label>
+                MAPA
+            </label>
+
+
+            <button
+                class="lineup-select"
+                id="lineupMapButton"
+                type="button"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+            >
+
+                <span
+                    class="lineup-select-preview"
+                >
+
+                    <span
+                        class="select-preview-bg"
+                    ></span>
+
+                    <img
+                        id="lineupMapPreview"
+                        alt=""
+                    >
+
+                </span>
+
+
+                <span
+                    class="lineup-select-text"
+                >
+
+                    <small>
+                        SELECCIONAR
+                    </small>
+
+                    <strong id="lineupMapText">
+                        Todos los mapas
+                    </strong>
+
+                </span>
+
+
+                <span
+                    class="lineup-select-arrow"
+                >
+                    ⌄
+                </span>
+
+            </button>
+
+
+            <div
+                class="lineup-dropdown"
+                id="lineupMapDropdown"
+                role="listbox"
+            ></div>
+
+        </div>
+
+
+
+        <!-- AGENT -->
+
+        <div
+            class="lineup-control"
+            id="agentFilterControl"
+        >
+
+            <label>
+                AGENTE
+            </label>
+
+
+            <button
+                class="lineup-select"
+                id="lineupAgentButton"
+                type="button"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+            >
+
+                <span
+                    class="lineup-select-preview"
+                >
+
+                    <span
+                        class="select-preview-bg"
+                    ></span>
+
+                    <img
+                        id="lineupAgentPreview"
+                        alt=""
+                    >
+
+                </span>
+
+
+                <span
+                    class="lineup-select-text"
+                >
+
+                    <small>
+                        SELECCIONAR
+                    </small>
+
+                    <strong id="lineupAgentText">
+                        Todos los agentes
+                    </strong>
+
+                </span>
+
+
+                <span
+                    class="lineup-select-arrow"
+                >
+                    ⌄
+                </span>
+
+            </button>
+
+
+            <div
+                class="lineup-dropdown"
+                id="lineupAgentDropdown"
+                role="listbox"
+            ></div>
+
+        </div>
+
+
+
+        <div class="lineups-result">
+
+            <span id="lineupsResultCount">
+                0
+            </span>
+
+            <small>
+                LINEUPS DISPONIBLES
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div
+        class="lineups-grid"
+        id="lineupsGrid"
+    ></div>
+
+
+    <div
+        class="lineups-empty hidden"
+        id="lineupsEmpty"
+    >
+
+        <span>
+            ⌁
+        </span>
+
+        <strong>
+            No hay lineups con estos filtros.
+        </strong>
+
+        <small>
+            Prueba con otro mapa o agente.
+        </small>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     COLLECTION FEATURE
+========================= -->
+
+<section
+    class="collection-feature"
+    id="collection"
+>
+
+
+    <div class="collection-feature-content">
+
+        <p class="section-label">
+            03 / COLLECTION
+        </p>
+
+
+        <h2>
+
+            SHOW
+
+            <br>
+
+            YOUR
+            <span>
+                STYLE.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Guarda tus skins favoritas,
+            organiza tu inventario y descubre
+            cuánto has completado de tu colección.
+
+        </p>
+
+
+        <button
+            class="primary-button"
+            id="collectionButton"
+            type="button"
+        >
+            VER COLECCIÓN →
+        </button>
+
+    </div>
+
+
+
+    <div
+        class="skin-showcase"
+        aria-hidden="true"
+    >
+
+
+        <div
+            class="showcase-card card-one"
+        >
+
+            <span>
+                VANDAL
+            </span>
+
+            <strong>
+                REAVER
+            </strong>
+
+        </div>
+
+
+        <div
+            class="showcase-card card-two"
+        >
+
+            <span>
+                PHANTOM
+            </span>
+
+            <strong>
+                ONI
+            </strong>
+
+        </div>
+
+
+        <div
+            class="showcase-card card-three"
+        >
+
+            <span>
+                KNIFE
+            </span>
+
+            <strong>
+                RGX
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+
+    <div class="footer-main">
+
+
+        <div>
+
+            <a
+                href="#tracker"
+                class="brand"
+            >
+
+                <span class="brand-icon">
+                    V
+                </span>
+
+                <span>
+                    V<span class="brand-red">-</span>TRACKER
+                </span>
+
+            </a>
+
+
+            <p>
+                Tu rendimiento.
+                Tus partidas.
+                Tu colección.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <a href="#tracker">
+                TRACKER
+            </a>
+
+            <a href="#ranking">
+                RANKING
+            </a>
+
+            <a href="#lineups">
+                LINEUPS
+            </a>
+
+            <a href="#collection">
+                COLECCIÓN
+            </a>
+
+            <a href="#">
+                PRIVACIDAD
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 V-TRACKER · FAN PROJECT
+        </span>
+
+        <span>
+            NOT AFFILIATED WITH RIOT GAMES
+        </span>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =========================
+     AUTH MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="authModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="authTitle"
+>
+
+
+    <div class="modal-box">
+
+
+        <button
+            class="modal-close"
+            id="closeModal"
+            type="button"
+            aria-label="Cerrar"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-logo">
+            V
+        </div>
+
+
+        <p class="section-label">
+            V-TRACKER ACCOUNT
+        </p>
+
+
+        <h2 id="authTitle">
+            INICIAR SESIÓN
+        </h2>
+
+
+        <p id="authSubtitle">
+
+            Crea una cuenta demo local para
+            guardar tu avatar, usuario y colección.
+
+        </p>
+
+
+        <form id="authForm">
+
+
+            <div
+                class="input-group username-field"
+                id="usernameField"
+                hidden
+            >
+
+                <label for="usernameInput">
+                    NOMBRE DE USUARIO
+                </label>
+
+                <input
+                    id="usernameInput"
+                    type="text"
+                    maxlength="24"
+                    autocomplete="nickname"
+                    placeholder="ShadowPlayer"
+                >
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label for="emailInput">
+                    EMAIL
+                </label>
+
+                <input
+                    id="emailInput"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="tu@email.com"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label for="passwordInput">
+                    CONTRASEÑA
+                </label>
+
+                <input
+                    id="passwordInput"
+                    type="password"
+                    minlength="6"
+                    autocomplete="current-password"
+                    placeholder="••••••••"
+                    required
+                >
+
+            </div>
+
+
+
+            <button
+                class="auth-submit"
+                type="submit"
+            >
+                CONTINUAR
+            </button>
+
+
+        </form>
+
+
+
+        <button
+            class="switch-auth"
+            id="switchAuth"
+            type="button"
+        >
+
+            ¿No tienes cuenta?
+
+            <strong>
+                Crear cuenta
+            </strong>
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     ACCOUNT MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="accountModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="accountTitle"
+>
+
+
+    <div
+        class="modal-box account-modal-box"
+    >
+
+
+        <button
+            class="modal-close"
+            id="closeAccountModal"
+            type="button"
+            aria-label="Cerrar"
+        >
+            ×
+        </button>
+
+
+        <p class="section-label">
+            MY V-TRACKER
+        </p>
+
+
+        <h2 id="accountTitle">
+            TU CUENTA
+        </h2>
+
+
+        <p id="accountEmailText">
+            Cuenta demo local.
+        </p>
+
+
+
+        <div class="account-preview">
+
+
+            <div
+                class="profile-avatar profile-avatar-xl"
+            >
+
+                <img
+                    id="accountAvatarPreview"
+                    alt=""
+                >
+
+                <span id="accountAvatarFallback">
+                    P
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <strong
+                    id="accountUsernamePreview"
+                >
+                    PLAYER
+                </strong>
+
+                <span
+                    id="accountEmailPreview"
+                >
+                    demo@email.com
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="account-form-grid">
+
+
+            <div class="input-group">
+
+                <label
+                    for="accountUsernameInput"
+                >
+                    NOMBRE DE USUARIO
+                </label>
+
+                <input
+                    id="accountUsernameInput"
+                    type="text"
+                    maxlength="24"
+                    autocomplete="nickname"
+                >
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="avatar-picker">
+
+
+            <div class="picker-heading">
+
+                <span>
+                    FOTO DE PERFIL
+                </span>
+
+                <small>
+                    Elige una de las 5 imágenes predeterminadas.
+                </small>
+
+            </div>
+
+
+
+            <div
+                class="avatar-grid"
+                id="avatarGrid"
+            ></div>
+
+
+        </div>
+
+
+
+        <div class="account-demo-note">
+
+            <strong>
+                DEMO LOCAL
+            </strong>
+
+            <span>
+                Esta cuenta no está conectada
+                a ningún servidor todavía.
+            </span>
+
+        </div>
+
+
+
+        <div class="account-actions">
+
+
+            <button
+                class="auth-submit"
+                id="saveAccountButton"
+                type="button"
+            >
+                GUARDAR CAMBIOS
+            </button>
+
+
+            <button
+                class="danger-button"
+                id="signOutButton"
+                type="button"
+            >
+                CERRAR SESIÓN
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div
+    class="toast"
+    id="toast"
+>
+
+    <span>
+        ✓
+    </span>
+
+    <p id="toastText">
+        Hecho
+    </p>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
